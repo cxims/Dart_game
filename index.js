@@ -1,6 +1,7 @@
 const User = require('./User')
 const TourDuMonde = require('./TourDuMonde')
 const game301 = require ('./301')
+const Cricket = require('./Cricket')
 var readlineSync = require('readline-sync');
 
 players = []
@@ -24,4 +25,7 @@ if (index == 0) {
 } else if (index == 1) {
     game = new game301(players)
     game.initGame();
+} else if (index == 2) {
+    game = new Cricket(players)
+    game.initGame()
 }
