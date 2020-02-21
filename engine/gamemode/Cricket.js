@@ -1,4 +1,4 @@
-const gamemode = require('./gamemode')
+const gamemode = require('../gamemode')
 var readlineSync = require('readline-sync');
 
 class Cricket extends gamemode {
