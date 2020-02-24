@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="mb-5 d-flex justify-content-around">
+    <a href="/players" class="btn btn-dark btn-lg">Gérer les joueurs</a>
+</div>
+    <table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Gamemode</th>
+      <th scope="col">Status</th>
+        <th scope="col">Date</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each games}}
+    <tr>
+      <td>{{_id}}</td>
+      <td>{{name}}</td>
+      <td>{{mode}}</td>
+      <td>{{status}}</td>
+        <td>{{createdAt}}</td>
+      <td><a href="/games/{{_id}}"><button class="btn btn-light">Access</button></a>       <form method="POST" action="/games/{{_id}}?overrideMethod=DELETE"><button type="submit" class="btn btn-light">Delete</button></form>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+
+

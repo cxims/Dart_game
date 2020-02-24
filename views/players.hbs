@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="mb-5 d-flex justify-content-around">
+  <h1 class="mb-5 d-flex justify-content-around">Manage players</h1>
+</div>
+    <table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+        <th scope="col">ID</th>
+      <th scope="col">Mode</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Game win</th>
+        <th scope="col">Game lost</th>
+      <th scope="col">Date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each players}}
+    <tr>
+      <td>{{_id}}</td>
+      <td>{{mode}}</td>
+      <td>{{name}}</td>
+      <td>{{email}}</td>
+      <td>{{gameWin}}</td>
+      <td>{{gameLost}}</td>
+        <td>{{createdAt}}</td>
+      <td><a href="/players/{{_id}}"><button class="btn btn-light">Access</button></a>       <form method="POST" action="/players/{{_id}}?overrideMethod=DELETE"><button type="submit" class="btn btn-light">Delete</button></form>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>

@@ -1,7 +1,7 @@
-const User = require('./engine/User')
-const TourDuMonde = require('./engine/gamemode/TourDuMonde')
-const game301 = require ('./engine/gamemode/301')
-const Cricket = require('./engine/gamemode/Cricket')
+const User = require('./User')
+const TourDuMonde = require('./gamemode/TourDuMonde')
+const game301 = require ('./gamemode/301')
+const Cricket = require('./gamemode/Cricket')
 var readlineSync = require('readline-sync');
 
 players = []
