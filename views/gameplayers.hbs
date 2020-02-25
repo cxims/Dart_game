@@ -3,13 +3,12 @@
     <div class="d-flex justify-content-center">
         <div> 
             <h2 class="mb-5 text-center">Players available</h2>
-            <form method="POST" action="/games/{{game._id}}/players">
+            <form method="POST" action="/games/{{game._id}}/players/">
             <table class="table table-bordered table-dark">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">ID</th>
                         <th score="col">Action</th>
                     </tr>
                 </thead>
@@ -18,8 +17,7 @@
                     <tr>
                     <td>{{name}}</td>
                     <td>{{email}}</td>
-                    <td>{{_id}}</td>
-                    {{!-- <input type="hidden" value="{{_id}}," id="_id" name="_id" type="number"> --}}
+                    <input type="hidden" value="{{_id}}" name="_id" id="_id">
                     <td><button class="btn btn-light" type="submit">Add</button></td>
                     </tr>
                     {{/each}}
@@ -30,7 +28,7 @@
         <div class="mx-5"></div>
         <div>
             <h2 class="mb-5 text-center">Current gameplayers</h2>
-            <form method="POST" action="/players/{{_id}}?overrideMethod=DELETE">
+            <form method="POST" action="/games/{{game._id}}/players/?overrideMethod=DELETE">
             <table class="table table-bordered table-dark">
                 <thead>
                     <tr>

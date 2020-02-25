@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Player = require('../models/Player')
+const GamePlayer = require('../models/GamePlayer')
 
 const ApiNotAvailable = require('../errors/ApiNotAvailable')
 
@@ -70,6 +71,7 @@ router.get('/:id', async (req, res) => {
     if(!req.params.id) res.json({message: 'Missing :id'})
     try {
         const player = await Player.findById(req.params.id)
+        const gameplayer = await GamePlayer.find({playerId: player._id})
         res.format({
             json: () => {
                 res.json(player)

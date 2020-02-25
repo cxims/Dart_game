@@ -81,6 +81,7 @@ router.get('/:id', async (req, res) => {
     try {
         const game = await Game.findById(req.params.id)
         const gamePlayers = await GamePlayer.find({gameId: game._id})
+        const gameshots = await GameShot.find({gameId: game._id})
         let playersId = []
         gamePlayers.forEach( gameplayer => {
             // let player =  Player.find({_id: ObjectId(gameplayer.playerId) })
@@ -95,7 +96,8 @@ router.get('/:id', async (req, res) => {
             html: () => {
                 res.render('game_id', {
                     players: players,
-                    game: game
+                    game: game,
+                    gameshots: gameshots
                 })
             }
         }
@@ -195,7 +197,7 @@ router.get('/:id/players', async (req, res) => {
                 res.render('gameplayers', {
                     players: players,
                     playersAvailable: playersAvailable,
-                    game: game
+                    game: game,
                 })
             }
         }
@@ -226,6 +228,20 @@ router.post('/:id/players', async (req, res) => {
             console.log(newGamePlayer)
             newGamePlayer.save()
         })
+
+        // const gamePlayerId = req.body._id
+        // const newGamePlayer = new GamePlayer({
+        //     playerId: gamePlayerId,
+        //     gameId: req.params.id,
+        //     remainingShots: null,
+        //     score: 0,
+        //     rank: null,
+        //     order: null,
+        //     inGame: true
+        // })
+
+        // console.log(newGamePlayer)
+        // await newGamePlayer.save()
 
         res.format({
             json: () => {
@@ -260,6 +276,7 @@ router.delete('/:id/players', async (req, res) => {
 router.post('/:id/shots', async (req, res) => {
     if(!req.params.id) res.json({message: 'Missing :id'})
     const game = await Game.findById(req.params.id)
+    console.log(req.body)
     try {
         const newShot = new GameShot({
             // playerId: req.body.playerId
@@ -268,7 +285,11 @@ router.post('/:id/shots', async (req, res) => {
             multiplicator: req.body.multiplicator
         })
         newShot.save()
-        res.send(newShot)
+        
+        res.format({
+            json: () => {res.status(204).json(newShot)},
+            html: () => res.redirect('/games/' + game._id)
+        })
     } catch (err) {
         res.status(400).json({message: err.message})
     }

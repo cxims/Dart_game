@@ -4,12 +4,12 @@
         <div>
             <a href="/games/{{game._id}}/players" class="btn btn-secondary btn-lg mb-5 text-center">Manage gameplayers</a>
             <a href="/games/{{game._id}}/edit" class="btn btn-secondary btn-lg mb-5 text-center">Edit/launch game</a>
-            <h2 class="mb-5 text-center">Game status : {{game.status}}</h2>
+            <h3 class="mb-5 text-center">Game status : {{game.status}}</h3>
+            <h3 class="mb-5 text-center">Game mode : {{game.mode}}</h3>
             <h2 class="mb-5 text-center">Players</h2>  
             <table class="table table-bordered table-dark">
                 <thead>
                     <tr>
-                    <th scope="col">Mode</th>
                     <th scope="col">Name</th>
                     <th scope="col">Game win</th>
                         <th scope="col">Game lost</th>
@@ -18,7 +18,6 @@
                 <tbody>
                     {{#each players}}
                     <tr>
-                    <td>{{mode}}</td>
                     <td>{{name}}</td>
                     <td>{{gameWin}}</td>
                     <td>{{gameLost}}</td>
@@ -30,19 +29,15 @@
             <table class="table table-bordered table-dark">
                 <thead>
                     <tr>
-                    <th scope="col">Mode</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Game win</th>
-                        <th scope="col">Game lost</th>
+                    <th scope="col">Sector</th>
+                    <th scope="col">Multiplicator</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each players}}
+                    {{#each gameshots}}
                     <tr>
-                    <td>{{mode}}</td>
-                    <td>{{name}}</td>
-                    <td>{{gameWin}}</td>
-                    <td>{{gameLost}}</td>
+                    <td>{{sector}}</td>
+                    <td>{{multiplicator}}</td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -59,13 +54,12 @@
                 </tr>
             </thead>
             <tbody>
-                <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="1" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="1">
+                <td scope="row">1</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -76,13 +70,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="2" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="2">
+                <td scope="row">2</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -93,13 +86,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="3" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="3">
+                <td scope="row">3</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -110,13 +102,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="4" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="4">
+                <td scope="row">4</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -127,13 +118,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="5" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="5">
+                <td scope="row">5</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -144,13 +134,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="6" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="6">
+                <td scope="row">6</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -161,13 +150,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="7" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="7">
+                <td scope="row">7</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -178,13 +166,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="8" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="8">
+                <td scope="row">8</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -195,13 +182,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="9" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="9">
+                <td scope="row">9</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -212,13 +198,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="10" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="10">
+                <td scope="row">10</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -229,13 +214,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="11" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="11">
+                <td scope="row">11</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -246,13 +230,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="12" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="12">
+                <td scope="row">12</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -263,13 +246,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="13" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="13">
+                <td scope="row">13</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -280,13 +262,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="14" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="14">
+                <td scope="row">14</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -297,13 +278,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="15" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="15">
+                <td scope="row">15</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -314,13 +294,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="16" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="16">
+                <td scope="row">16</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -331,13 +310,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="17" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="17">
+                <td scope="row">17</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -348,13 +326,12 @@
                 </td>
                 </tr>
                 </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="18" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="18">
+                <td scope="row">18</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -365,14 +342,12 @@
                 </td>
                 </tr>
                 </form>
-                        </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="19" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="19">
+                <td scope="row">19</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -383,14 +358,12 @@
                 </td>
                 </tr>
                 </form>
-                        </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="20" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="20">
+                <td scope="row">20</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -401,14 +374,12 @@
                 </td>
                 </tr>
                 </form>
-                        </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="25" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="25">
+                <td scope="row">25</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -419,14 +390,12 @@
                 </td>
                 </tr>
                 </form>
-                        </form>
-                        <form action="#" method="POST">
+                <form action="/games/{{game._id}}/shots/" method="POST">
                 <tr>
-                <td scope="row" width="10">
-                    <input name="score" type="text" value="50" disabled>
-                </td>
+                    <input type="hidden" name="sector" value="50">
+                <td scope="row">50</td>
                 <td>
-                    <select id="inputState" class="form-control">
+                    <select id="multiplicator" class="form-control" name="multiplicator">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
