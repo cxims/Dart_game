@@ -1,7 +1,8 @@
 <div class="container">
-    <div class="mb-5 d-flex justify-content-around">
-  <h1 class="mb-5 d-flex justify-content-around">Manage players</h1>
-</div>
+        <h1 class="mb-5 d-flex justify-content-around">Manage players</h1>
+          <div class="text-center">
+          <img src="images/player.png" class="w-25 p-3">
+        </div>
     <table class="table table-bordered table-dark">
   <thead>
     <tr>
@@ -30,4 +31,8 @@
     {{/each}}
   </tbody>
 </table>
+    <div class="mb-5 d-flex justify-content-around">
+    <a href="/players/new" class="btn btn-dark btn-lg">Create new player</a>
+    <a href="/games" class="btn btn-dark btn-lg">Manage games</a>
+  </div>
 </div>

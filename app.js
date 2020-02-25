@@ -21,6 +21,9 @@ app.set('view engine', 'hbs')
 // Override method
 app.use(methodOverride('overrideMethod'))
 
+//Static files
+app.use('/', express.static(__dirname + '/assets'));
+
 //Connection
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true}, )
 

@@ -1,0 +1,444 @@
+<div class="container-fluid">
+    <h1 class="mb-5 text-center">Game : {{game.name}}</h1>
+    <div class="d-flex justify-content-center">
+        <div>
+            <a href="/games/{{game._id}}/players" class="btn btn-secondary btn-lg mb-5 text-center">Manage gameplayers</a>
+            <a href="/games/{{game._id}}/edit" class="btn btn-secondary btn-lg mb-5 text-center">Edit/launch game</a>
+            <h2 class="mb-5 text-center">Game status : {{game.status}}</h2>
+            <h2 class="mb-5 text-center">Players</h2>  
+            <table class="table table-bordered table-dark">
+                <thead>
+                    <tr>
+                    <th scope="col">Mode</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Game win</th>
+                        <th scope="col">Game lost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each players}}
+                    <tr>
+                    <td>{{mode}}</td>
+                    <td>{{name}}</td>
+                    <td>{{gameWin}}</td>
+                    <td>{{gameLost}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <h2 class="mb-5 text-center">Game shots</h2>
+            <table class="table table-bordered table-dark">
+                <thead>
+                    <tr>
+                    <th scope="col">Mode</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Game win</th>
+                        <th scope="col">Game lost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each players}}
+                    <tr>
+                    <td>{{mode}}</td>
+                    <td>{{name}}</td>
+                    <td>{{gameWin}}</td>
+                    <td>{{gameLost}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="mx-5"></div>
+        <div>
+            <table class="table table-dark">
+            <thead>
+                <tr>
+                <th scope="col">Score</th>
+                <th scope="col">Multiplicateur</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="1" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="2" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="3" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="4" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="5" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="6" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="7" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="8" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="9" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="10" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="11" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="12" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="13" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="14" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="15" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="16" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="17" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="18" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="19" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="20" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="25" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+                        </form>
+                        <form action="#" method="POST">
+                <tr>
+                <td scope="row" width="10">
+                    <input name="score" type="text" value="50" disabled>
+                </td>
+                <td>
+                    <select id="inputState" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-light" type="submit" >Shot</button>
+                </td>
+                </tr>
+                </form>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>

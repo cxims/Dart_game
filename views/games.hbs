@@ -1,7 +1,8 @@
 <div class="container">
-    <div class="mb-5 d-flex justify-content-around">
-    <a href="/players" class="btn btn-dark btn-lg">Gérer les joueurs</a>
-</div>
+        <h1 class="mb-5 d-flex justify-content-around">Manage games</h1>
+        <div class="text-center">
+          <img src="images/target.png" class="w-25 p-3">
+        </div>
     <table class="table table-bordered table-dark">
   <thead>
     <tr>
@@ -26,6 +27,10 @@
     {{/each}}
   </tbody>
 </table>
+    <div class="mb-5 d-flex justify-content-around">
+      <a href="/games/new" class="btn btn-dark btn-lg">Create new game</a>
+    <a href="/players" class="btn btn-dark btn-lg">Manage players</a>
+  </div>
 </div>
 
 

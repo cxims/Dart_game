@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <h1 class="mb-5 text-center">Gameplayers</h1>
+    <div class="d-flex justify-content-center">
+        <div> 
+            <h2 class="mb-5 text-center">Players available</h2>
+            <form method="POST" action="/games/{{game._id}}/players">
+            <table class="table table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">ID</th>
+                        <th score="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each playersAvailable}}
+                    <tr>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td>{{_id}}</td>
+                    {{!-- <input type="hidden" value="{{_id}}," id="_id" name="_id" type="number"> --}}
+                    <td><button class="btn btn-light" type="submit">Add</button></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            </form>
+        </div>
+        <div class="mx-5"></div>
+        <div>
+            <h2 class="mb-5 text-center">Current gameplayers</h2>
+            <form method="POST" action="/players/{{_id}}?overrideMethod=DELETE">
+            <table class="table table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each players}}
+                    <tr>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td><button type="submit" class="btn btn-light">Delete</button></td>
+                    {{!-- <td><a href="/games/{{_id}}"><button class="btn btn-light">Delete</button></a></td> --}}
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            </form>
+        </div>
+    </div>
+</div>

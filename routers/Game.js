@@ -1,8 +1,14 @@
 const express = require('express')
 const router = express.Router()
 const Game = require('../models/Game')
+const Player = require('../models/Player')
 const GamePlayer = require('../models/GamePlayer')
 const GameShot = require('../models/GameShot')
+const mongoose = require('mongoose')
+const ObjectId = mongoose.Types.ObjectId;
+
+
+
 
 //Errors
 const PlayersNotAddableGameStarted = require('../errors/PlayersNotAddableGameStarted')
@@ -32,9 +38,11 @@ router.get('/new', async (req, res) => {
         res.format({
             json: () => {
                 res.status(406).json(new ApiNotAvailable())
+            },
+            html: () => {
+                res.render('new_game')
             }
-        },
-            // html
+        }
         )
     } catch (err) {
         res.status(400).json({message: err.message})
@@ -55,9 +63,11 @@ router.post('/', async (req, res) => {
         res.format({
             json: () => {
                 res.status(201).send(newGame)
+            },
+            html: () => {
+                res.redirect('/games/' + game._id)
             }
-        },
-            // html
+        }
         )
         
     } catch (err) {
@@ -71,13 +81,24 @@ router.get('/:id', async (req, res) => {
     try {
         const game = await Game.findById(req.params.id)
         const gamePlayers = await GamePlayer.find({gameId: game._id})
+        let playersId = []
+        gamePlayers.forEach( gameplayer => {
+            // let player =  Player.find({_id: ObjectId(gameplayer.playerId) })
+            playersId.push(gameplayer.playerId)
+        })
+        let players = await Player.find({_id: {$in: playersId}})
         if (req.query.include == "gamePlayers") game._doc['gamePlayers'] = gamePlayers
         res.format({
             json: () => {
                 res.json({game})
+            },
+            html: () => {
+                res.render('game_id', {
+                    players: players,
+                    game: game
+                })
             }
-        },
-            // html
+        }
         )
     } catch (err) {
         res.status(400).json({message: err.message})
@@ -93,9 +114,11 @@ router.get('/:id/edit', async (req, res) => {
         res.format({
             json: () => {
                 res.status(406).json(new ApiNotAvailable())
+            },
+            html: () => {
+                res.render('edit_game', {game: game})
             }
-        },
-            // html
+        }
         )
     } catch (err) {
         res.status(400).json({message: err.message})
@@ -115,9 +138,11 @@ router.patch('/:id', async (req, res) => {
         res.format({
             json: () => {
                 res.status(200).send(game)
+            },
+            html: () => {
+                res.redirect('/games/' + game._id)
             }
-        },
-            // html
+        }
         )
     } catch (err) {
         res.status(400).json({message: err.message})
@@ -149,12 +174,31 @@ router.get('/:id/players', async (req, res) => {
     if(!req.params.id) res.json({message: 'Missing :id'})
     try {
         const game = await Game.findById(req.params.id)
+        const gameplayers = await GamePlayer.find({gameId: game._id})
+        let playersId = []
+        gameplayers.forEach(gameplayer => {
+            playersId.push(gameplayer.playerId)
+        })
+        //Get every Players except those in game
+        const playersAvailable = await Player.find({_id: { $nin: playersId}})
+        // console.log(playersAvailable)
+        // console.log("____________")
+        // console.log(gamePlayers)
+
+        //Get every players that are IN game
+        let players = await Player.find({_id: {$in: playersId}})
         res.format({
             json: () => {
                 res.json(game)
+            },
+            html: () => {
+                res.render('gameplayers', {
+                    players: players,
+                    playersAvailable: playersAvailable,
+                    game: game
+                })
             }
-        },
-            //html
+        }
         )
     } catch (err) {
         res.status(400).json({message: err.message})
@@ -182,7 +226,13 @@ router.post('/:id/players', async (req, res) => {
             console.log(newGamePlayer)
             newGamePlayer.save()
         })
-        res.status(204).json({message : "GamePlayer has been added"})
+
+        res.format({
+            json: () => {
+                res.status(204).json({message : "GamePlayer has been added"})
+            },
+            html: res.redirect('/games/' + game._id + '/players')
+        })
     } catch (err) {
         res.status(400).json({message: err.message})
     }
