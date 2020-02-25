@@ -247,10 +247,17 @@ router.post('/:id/players', async (req, res) => {
             json: () => {
                 res.status(204).json({message : "GamePlayer has been added"})
             },
-            html: res.redirect('/games/' + game._id + '/players')
+            html: () => res.redirect('/games/' + game._id + '/players')
         })
     } catch (err) {
-        res.status(400).json({message: err.message})
+        res.format({
+            json: () => {
+                res.status(400).json({message: err.message})
+            },
+            html: () => {
+                res.render('error')
+            }
+        })
     }
 })
 
@@ -268,7 +275,14 @@ router.delete('/:id/players', async (req, res) => {
 
         res.status(204).json({message : "GamePlayer has been successfully deleted"})
     } catch (err) {
-        res.status(400).json({message: err.message})
+        res.format({
+            json: () => {
+                res.status(400).json({message: err.message})
+            },
+            html: () => {
+                res.render('error')
+            }
+        })
     }
 })
 
